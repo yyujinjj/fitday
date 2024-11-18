@@ -1,3 +1,5 @@
+import 'package:fitday/signup.dart';
+import 'package:fitday/start.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -25,6 +27,17 @@ class LoginScreen extends StatelessWidget {
 
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const StartScreen()),
+            );
+          },
+        ),
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -73,7 +86,12 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const SignUpScreen()),
+                  );
+                },
                 child: RichText(
                   text: const TextSpan(
                     children: [
@@ -82,7 +100,7 @@ class LoginScreen extends StatelessWidget {
                         style: TextStyle(color: Colors.grey), // Grey text color
                       ),
                       TextSpan(
-                        text: 'Log In',
+                        text: 'Sign Up',
                         style: TextStyle(color: Colors.black), // Green text color for 'Sign Up'
                       ),
                     ],
